@@ -11,14 +11,11 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier'
   ],
-  ignorePatterns: [
-    'dist',
-    '.eslintrc.cjs'
-  ],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'package.json'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures:{
+    ecmaFeatures: {
       jsx: true
     }
   },
@@ -27,15 +24,13 @@ module.exports = {
       version: '18.2'
     }
   },
-  plugins: [
-    'react-refresh'
-  ],
+  plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
       {
         allowConstantExport: true
-      },
-    ],
-  },
+      }
+    ]
+  }
 }

@@ -13,7 +13,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,json,md}": [
-      "prettier --write"
+      "npx prettier --write",
+      "npm run lint",
+      "eslint"
     ]
   },
   "dependencies": {
