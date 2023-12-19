@@ -1,6 +1,6 @@
 {
   "name": "react_todo_list",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://futaro0405.github.io/react_todo_list/",
