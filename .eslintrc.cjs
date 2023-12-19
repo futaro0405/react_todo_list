@@ -48,6 +48,10 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-vars': 'warn',
-    'react/jsx-uses-react': 'warn'
+    'react/jsx-uses-react': 'warn',
+    'react/no-unknown-property': [
+      "error",
+      { "ignore": ["css"] }
+    ]
   }
 };
