@@ -13,12 +13,14 @@ module.exports = {
   ],
   ignorePatterns: [
     'dist',
-    '.eslintrc.cjs'
+    '.eslintrc.cjs',
+    'package-lock.json',
+    'package.json'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures:{
+    ecmaFeatures: {
       jsx: true
     }
   },
@@ -27,15 +29,25 @@ module.exports = {
       version: '18.2'
     }
   },
-  plugins: [
-    'react-refresh'
-  ],
+  plugins: ['react-refresh'],
   rules: {
+    'no-var': 'error',
+    'no-console': 'error',
+    camelcase: [
+      'error',
+      {
+        properties: 'never'
+      }
+    ],
     'react-refresh/only-export-components': [
       'warn',
-      {
-        allowConstantExport: true
-      },
+      { allowConstantExport: true }
     ],
-  },
-}
+    'react/prop-types': 'off',
+    semi: ['error', 'always'],
+    'import/prefer-default-export': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-vars': 'warn',
+    'react/jsx-uses-react': 'warn'
+  }
+};
