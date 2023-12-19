@@ -7,19 +7,19 @@
     "dev": "vite",
     "build": "vite build",
     "prepare": "husky install",
-    "lint": "eslint src/ --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "format": "prettier --write \"**/*.+(js|jsx|css|scss)\"",
     "preview": "vite preview",
-    "precommit:format": "prettier --write \"**/*.+(js|jsx|css|scss)\"",
-    "precommit:lint": "eslint src/ --ext js,jsx --report-unused-disable-directives"
+    "lint": "eslint src/ --ext js,jsx",
+    "lint:format": "npm run lint -- --fix",
+    "format": "prettier --write \"src/**/*.+(js|jsx|json|yml|css|scss)\""
   },
   "lint-staged": {
     "*.{js,jsx,json,md}": [
-      "npm run precommit:format",
-      "npm run precommit:lint"
+      "npm run format",
+      "npm run lint"
     ]
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
