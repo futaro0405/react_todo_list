@@ -14,8 +14,9 @@ module.exports = {
   ignorePatterns: [
     'dist',
     '.eslintrc.cjs',
+    'package.json',
     'package-lock.json',
-    'package.json'
+    'vite.config.js'
   ],
   parserOptions: {
     ecmaVersion: 'latest',
