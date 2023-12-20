@@ -11,9 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint src/ --ext js,jsx",
     "lint:format": "npm run lint -- --fix",
-    "format": "prettier --write \"src/**/*.+(js|jsx|json|yml|css|scss)\"",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "format": "prettier --write \"src/**/*.+(js|jsx|json|yml|css|scss)\""
   },
   "lint-staged": {
     "*.{js,jsx,json,md}": [
@@ -22,7 +20,8 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "11.11.1",
+    "destyle.css": "4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -35,7 +34,6 @@
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.5",
-    "gh-pages": "6.1.0",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",
     "prettier": "3.1.1",
