@@ -16,6 +16,7 @@ const InputText = css`
   font-size: 1.2rem;
   border-radius: 6px;
   border: none;
+  background-color: #fff;
 `;
 const button = css`
   padding: 8px 24px;
