@@ -15,11 +15,14 @@ const wrapper = css`
 `;
 
 export const CountTodo = ({ todos }) => {
+  const allCount = todos.length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
+  const notCompletedCount = allCount - completedCount;
   return (
     <div css={wrapper}>
-      <p>全て: {todos.length}</p>
-      <p>Completed: {todos.filter((todo) => todo.completed).length}</p>
-      <p>Incompleted: {todos.filter((todo) => !todo.completed).length}</p>
+      <p>全て: {allCount}</p>
+      <p>Completed: {completedCount}</p>
+      <p>Incompleted: {notCompletedCount}</p>
     </div>
   );
 };

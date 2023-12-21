@@ -15,6 +15,11 @@ const item = css`
   gap: 8px;
   margin-bottom: 8px;
 `;
+
+const checkbox = css`
+  appearance: auto;
+`;
+
 const text = css`
   padding: 8px 4px;
   font-size: 1.2rem;
@@ -39,58 +44,13 @@ const button = css`
   }
 `;
 
-export const ListTodo = ({ todos, setTodos }) => {
-  const handleEdit = (id, value) => {
-    setTodos((todos) => {
-      const newTodos = todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, value };
-        }
-        return todo;
-      });
-
-      return newTodos;
-    });
-  };
-
-  const handleDeleted = (index) => {
-    const result = window.confirm('本当に削除してもよろしいですか？');
-
-    if (result) {
-      setTodos((todos) => {
-        const newTodos = [...todos];
-        newTodos.splice(index, 1);
-        return newTodos;
-      });
-    }
-  };
-
-  const handleCheck = (id, completed) => {
-    setTodos((todos) => {
-      const newTodos = todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, completed };
-        }
-        return todo;
-      });
-
-      return newTodos;
-    });
-  };
-
-  const handleTodoText = (id, editable) => {
-    setTodos((todos) => {
-      const newTodos = todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, editable };
-        }
-        return todo;
-      });
-
-      return newTodos;
-    });
-  };
-
+export const ListTodo = ({
+  handleEdit,
+  handleDeleted,
+  handleCheck,
+  handleTodoText,
+  todos
+}) => {
   return (
     <>
       <ul css={list}>
@@ -98,6 +58,7 @@ export const ListTodo = ({ todos, setTodos }) => {
           return (
             <li key={todo.id} css={item}>
               <input
+                css={checkbox}
                 type="checkbox"
                 checked={todo.completed}
                 onChange={() => handleCheck(todo.id, !todo.completed)}

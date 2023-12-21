@@ -31,40 +31,16 @@ const button = css`
   }
 `;
 
-export const InputTodo = ({ text, setText, setTodos }) => {
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleSubmit = () => {
-    if (!text) return;
-
-    const newTodo = {
-      value: text,
-      id: new Date().getTime(),
-      completed: false,
-      editable: true
-    };
-
-    setTodos((todos) => [newTodo, ...todos]);
-    setText('');
-  };
-
+export const InputTodo = ({ text, handleChange, handleSubmit }) => {
   return (
-    <form
-      css={form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleSubmit();
-      }}
-    >
+    <form css={form} onSubmit={(e) => handleSubmit(e)}>
       <input
         css={InputText}
         type="text"
         value={text}
         onChange={(e) => handleChange(e)}
       />
-      <input css={button} type="submit" value="追加" onSubmit={handleSubmit} />
+      <input css={button} type="submit" value="追加" />
     </form>
   );
 };

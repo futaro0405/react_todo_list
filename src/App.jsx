@@ -1,23 +1,38 @@
-import { useState } from 'react';
-
 import { InputTodo } from './components/InputTodo';
 import { CountTodo } from './components/CountTodo';
 import { ListTodo } from './components/ListTodo';
 
+import { useTodo } from './hooks/useTodo';
+
 export const App = () => {
-  const [text, setText] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [
+    text,
+    todos,
+    {
+      handleChange,
+      handleSubmit,
+      handleEdit,
+      handleDeleted,
+      handleCheck,
+      handleTodoText
+    }
+  ] = useTodo();
 
   return (
-    <div>
+    <div className="App">
       <InputTodo
         text={text}
-        setText={setText}
-        todos={todos}
-        setTodos={setTodos}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
       />
       <CountTodo todos={todos} />
-      <ListTodo todos={todos} setTodos={setTodos} />
+      <ListTodo
+        handleEdit={handleEdit}
+        handleDeleted={handleDeleted}
+        handleCheck={handleCheck}
+        handleTodoText={handleTodoText}
+        todos={todos}
+      />
     </div>
   );
 };
